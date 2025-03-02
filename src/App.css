@@ -1,42 +1,52 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 1em 2em;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.playerContainer{
+  display: flex;
+  justify-content: end;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.playerContainer > .icon{
+  width: 2.5em;
+  height: auto;
+  margin: 0em 0.5em 1em 0em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.webName{
+  text-align: left;
+  margin: 0em;
+}
+.ghLink{
+  text-decoration: none;
+  color: #9d596e;
+}
+.timer{
+  font-size: 6em;
+  margin:0em;
+  padding: 0em;
+}
+button {
+  border-radius: 1.25em;
+  border: 2px solid #9d596e;
+  padding: 0.6em 1.2em;
+  margin: 0em 1em;
+  color: #9d596e;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #f9f9f9;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#totalTime{
+  text-align: right;
 }
