@@ -65,12 +65,41 @@
   outline: 4px auto -webkit-focus-ring-color;
 }
 .taskListContainer{
-  text-align: right;
   list-style: none;
+  text-align: left;
+  padding-left: 0;
 }
 .taskListContainer .text {
-  font-size: 1.75em;
+  padding-left:0.25em;
+  font-size: 1.5em;
 }
+.taskListContainer li{
+  margin: 0.5em 0em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.taskListContainer input[type="checkbox"] {
+  cursor: pointer;
+  width: 2em; 
+  height: 2em; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #f9f9f9; 
+  border-radius: 0.5em;
+  background-color: #f9f9f9; 
+  position: relative;
+}
+.taskListContainer input[type="checkbox"]:checked {
+  background-color: rgb(136, 190, 136);
+  border-color: green;
+}
+.taskListContainer input[type="checkbox"]:checked + .text {
+  text-decoration: line-through; /* Strike-through the text when checked */
+  color: rgb(166, 159, 159); /* Change text color when checked */
+}
+
 .mainDisplayContainer{
   display: flex;
 }
@@ -82,7 +111,11 @@
 }
 .taskDisplayContainer{
   flex: 1 1 0%;
+  border: 0.2em solid #f9f9f9;
+  border-radius: 1em;
+  padding: 0.5em;
 }
 #totalTime{
   text-align: right;
+  margin-right:1em;
 }

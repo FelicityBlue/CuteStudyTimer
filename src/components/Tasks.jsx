@@ -21,7 +21,7 @@ function Tasks(){
         <div className="taskContainer">
             <input
                 type="text"
-                placeholder="Add a task... (max 3)"
+                placeholder="Add a task..."
                 value={newTask}
                 onChange={newTaskChange}
             />
@@ -30,6 +30,7 @@ function Tasks(){
         <ol className="taskListContainer">
             {tasks.map((task, index) =>  (
                 <li key={index}>
+                    <input type="checkbox" />
                     <span className="text">{task}</span>
                 </li>
             ))}

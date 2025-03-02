@@ -55,24 +55,23 @@ function Timer() {
   }
     return (
     <>
-    <div className="timerContainer">
-      <div>
-        <button className="timerBtn" onClick={() => setTimer(1500)}>pomodoro</button>
-        <button className="timerBtn" onClick={() => setTimer(300)}>short break</button>
-        <button className="timerBtn" onClick={() => setTimer(600)}>long break</button>
+      <div className="timeDisplayContainer">
+        <div className="timerContainer">
+          <div className="timerBtns">
+            <button className="timerBtn" onClick={() => setTimer(1500)}>pomodoro</button>
+            <button className="timerBtn" onClick={() => setTimer(60)}>short break</button>
+            <button className="timerBtn" onClick={() => setTimer(600)}>long break</button>
+          </div>
+          <p className="timer">{minLeft}:{secLeft}</p>
+        </div>
+        <div>
+          <button onClick={startTimer}>Start</button>
+          <button onClick={startTimer}>Reset</button>
+        </div>
+        <div id="totalTime">
+          <p>Total Focus Time: {totalFocusTime} minutes</p>
+        </div>
       </div>
-      <p className="timer">{minLeft}:{secLeft}</p>
-    </div>
-    <div>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={startTimer}>Reset</button>
-    </div>
-
-    
-    <div id="totalTime">
-        <p>Total Focus Time: {totalFocusTime} minutes</p>
-    </div>
-
     </>
   )
 }
