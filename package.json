@@ -2,7 +2,7 @@
   "name": "cutestudytimer",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://aishwaryaparab.github.io/book-landing-page/",
+  "homepage": "https://felicityblue.github.io/CuteStudyTimer/",
   "type": "module",
   "scripts": {
     "predeploy" : "npm run build",
