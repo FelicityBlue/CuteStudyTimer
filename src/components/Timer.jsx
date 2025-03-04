@@ -7,7 +7,7 @@ function Timer() {
  const [minLeft, setMinLeft] = useState(25);
  const [timerRun, setTimerRun] = useState(false);
 
- const [currTimer, setCurrTimer] = useState(25);
+ const [currTimer, setCurrTimer] = useState(1500);
  const [totalFocusTime, setTotalFocusTime] = useState(0);
  
   function setSecStr(second){
@@ -50,7 +50,7 @@ function Timer() {
     setTimeLeft(seconds);
     setMinLeft(Math.floor(seconds / 60));
     setSecLeft("00");
-    setCurrTimer(Math.floor(seconds / 60));
+    setCurrTimer(seconds);
     setTimerRun(false);
   }
     return (
@@ -66,7 +66,7 @@ function Timer() {
         </div>
         <div>
           <button onClick={startTimer}>Start</button>
-          <button onClick={startTimer}>Reset</button>
+          <button onClick={() => setTimer(currTimer)}>Reset</button>
         </div>
         <div id="totalTime">
           <p>Total Focus Time: {totalFocusTime} minutes</p>
