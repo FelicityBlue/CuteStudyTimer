@@ -1,6 +1,6 @@
 #root {
   max-width: 1280px;
-  margin: 1em 2em;
+  margin: 1em 0.5em;
   text-align: center;
 }
 .playerContainer{
@@ -31,7 +31,7 @@
 }
 .webName{
   text-align: left;
-  margin: 0em;
+  margin: 0em 1em;
 }
 .ghLink{
   text-decoration: none;
@@ -116,6 +116,7 @@
 }
 .timerDisplayContainer{
   min-width: 50vw;
+  
 }
 .taskDisplayContainer{
   border: 0.2em solid #f9f9f9;
