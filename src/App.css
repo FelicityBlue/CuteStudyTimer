@@ -48,7 +48,7 @@
   border-radius: 1.25em;
   border: 2px solid #9d596e;
   padding: 0.6em 1.2em;
-  margin: 0.5em 1em;
+  margin: 0.5em 0.75em;
   color: #9d596e;
   font-size: 1em;
   font-weight: 500;
@@ -68,16 +68,24 @@
   list-style: none;
   text-align: left;
   padding-left: 0;
+  
+  resize:none;
+  display: grid;
+  overflow-y: auto;
+  grid-template-columns: repeat(1, 1fr);
+  max-width: 40vw;
+  max-height: 80vh;
 }
 .taskListContainer .text {
-  padding-left:0.25em;
+  padding-left:0.1em;
   font-size: 1.5em;
+  word-break: break-all; 
 }
 .taskListContainer li{
   margin: 0.5em 0em;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
 }
 .taskListContainer input[type="checkbox"] {
   cursor: pointer;
@@ -90,6 +98,7 @@
   border-radius: 0.5em;
   background-color: #f9f9f9; 
   position: relative;
+  flex-shrink: 0;
 }
 .taskListContainer input[type="checkbox"]:checked {
   background-color: rgb(136, 190, 136);
@@ -101,16 +110,14 @@
 }
 
 .mainDisplayContainer{
-  display: flex;
-}
-.mainDisplayContainer div{
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
 }
 .timerDisplayContainer{
-  flex: 3 1 0%;
+  min-width: 50vw;
 }
 .taskDisplayContainer{
-  flex: 1 1 0%;
   border: 0.2em solid #f9f9f9;
   border-radius: 1em;
   padding: 0.5em;
