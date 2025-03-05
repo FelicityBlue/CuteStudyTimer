@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import Tasks from "./Tasks";
-
+import settingIcon from "../assets/setting_icon.svg";
 function Timer() {
  const [timeLeft, setTimeLeft] = useState(1500);
  const [secLeft, setSecLeft] = useState("00");
@@ -39,7 +38,8 @@ function Timer() {
     }
     else{
         setTimerRun(false);
-        setMinLeft(currTimer);
+        setMinLeft(Math.floor(currTimer/60));
+        setTimeLeft(currTimer);
         setTotalFocusTime(totalFocusTime+currTimer);
         clearInterval(timeInterval);
     }
@@ -53,6 +53,9 @@ function Timer() {
     setCurrTimer(seconds);
     setTimerRun(false);
   }
+  function settingPopup(){
+
+  }
     return (
     <>
       <div className="timeDisplayContainer">
@@ -64,9 +67,10 @@ function Timer() {
           </div>
           <p className="timer">{minLeft}:{secLeft}</p>
         </div>
-        <div>
+        <div className="controlBtns">
           <button onClick={startTimer}>Start</button>
           <button onClick={() => setTimer(currTimer)}>Reset</button>
+          <img onClick={settingPopup} src={settingIcon} />
         </div>
         <div id="totalTime">
           <p>Total Focus Time: {totalFocusTime} minutes</p>
