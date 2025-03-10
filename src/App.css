@@ -1,6 +1,6 @@
 @font-face {
  font-family: 'JoyStix';
- src: url("./src/assets/JoyStix_Font/joystix monospace.otf") format('opentype');
+ src: url("./src/assets/JoyStix_Font/joystix_monospace.otf") format('opentype');
 }
 #root {
   max-width: 1280px;
