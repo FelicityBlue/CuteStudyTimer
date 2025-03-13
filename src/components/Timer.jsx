@@ -5,7 +5,7 @@ function Timer() {
  const [timerRun, setTimerRun] = useState(false);
  const [totalFocusTime, setTotalFocusTime] = useState(0);
  
- let currTimer = 1500;
+ const [currTimer, setCurrTimer] = useState(1500);
  const startTimeRef  = useRef(0);
 
   function startTimer () {
@@ -34,7 +34,7 @@ function Timer() {
   }, [timerRun, timeLeft]);
   function setTimer(seconds){
     setTimeLeft(seconds);
-    currTimer = seconds;
+    setCurrTimer(seconds);
     setTimerRun(false);
   }
   function displayTime(){
