@@ -23,10 +23,14 @@
   margin: 0em;
 }
 .taskContainer input[type="text"]{
-  padding: 0.6em 4em 0.6em 1em;
+  min-width: 5em;
+  min-height: 2.25em;
   margin: 0em 0.25em;
+  padding-left: 0.5em;
+  outline: 0;
   background-color: #f9f9f9;
   border: none;
+  border-radius: 0.5em;
   color: #9d596e;
 }
 .taskContainer img{
@@ -36,7 +40,7 @@
 .webName{
   font-family: "JoyStix";
   text-align: left;
-  margin: 0em 1em;
+  margin: 2em 1em;
 }
 .ghLink{
   text-decoration: none;
@@ -128,7 +132,7 @@
 
 }
 .timerDisplayContainer{
-  min-width: 50vw;
+  min-width: 70vw;
   
 }
 .taskDisplayContainer{
@@ -139,4 +143,18 @@
 #totalTime{
   text-align: right;
   margin-right:1em;
+}
+
+.musicPlayer{
+  margin: 2em 2em;
+  max-width: 20em;
+  background-color: transparent;
+  border: none;
+}
+.musicPlayer iframe {
+  width: 100%;
+  height: 80px; 
+  border: none; 
+  border-radius: 1em;
+  box-sizing: border-box; 
 }
