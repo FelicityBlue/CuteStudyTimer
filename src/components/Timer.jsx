@@ -1,14 +1,16 @@
 import Modal from 'react-modal';
 import { useState, useEffect, useRef } from 'react'
 import settingIcon from "../assets/setting_icon.svg";
-function Timer() {
+
+
+function Timer(props) {
  const [timeLeft, setTimeLeft] = useState(1500);
  const [timerRun, setTimerRun] = useState(false);
  const [totalFocusTime, setTotalFocusTime] = useState(0);
  const [settingOpen, setSettingOpen] = useState(false);
  const [currTimer, setCurrTimer] = useState(1500);
  const startTimeRef  = useRef(0);
-
+ const timeUpAudioRef = useRef(null);
  let pomodoroTime = 1500;
  let shortBreak = 300;
  let longBreak = 600;
@@ -29,6 +31,7 @@ function Timer() {
         setTimeLeft(updatedTimeLeft);
     }
     else{
+        timeUpAudioRef.current.play();
         setTimerRun(false);
         setTimeLeft(currTimer);
         setTotalFocusTime(totalFocusTime+(Math.floor(currTimer / 60)));
@@ -60,6 +63,7 @@ function Timer() {
   }
     return (
     <>
+      <audio ref={timeUpAudioRef} src={props.timeUpSound} />
       <div className="timeDisplayContainer">
         <div className="timerContainer">
           <div className="timerBtns">

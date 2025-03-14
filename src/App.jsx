@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import Timer from './components/timer.jsx';
+import Timer from './components/Timer.jsx';
 import Tasks from './components/Tasks.jsx';
+import timeUpSound1 from "/src/assets/timeup_sound_1.mp3";
+import timeUpSound2 from "/src/assets/timeup_sound_2.mp3";
 
 import './App.css'
 
 function App() {
+  const currTimeUpSound = timeUpSound1;
   
     return (
     <>
@@ -12,7 +15,7 @@ function App() {
     
     <div className="mainDisplayContainer">
       <div className="timerDisplayContainer" >
-        <Timer />
+        <Timer timeUpSound={currTimeUpSound} />
       </div>
       <div className="taskDisplayContainer">
         <Tasks />
