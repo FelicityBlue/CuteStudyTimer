@@ -40,7 +40,7 @@
 .webName{
   font-family: "JoyStix";
   text-align: left;
-  margin: 2em 1em;
+  margin: 1em 1em;
 }
 .ghLink{
   text-decoration: none;
@@ -129,7 +129,7 @@
 .mainDisplayContainer{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
+  gap: 0.5em;
 }
 .timerDisplayContainer{
   min-width: 70vw;
@@ -147,7 +147,7 @@
 
 .musicPlayer{
   margin: 2em 2em;
-  max-width: 20em;
+  width: 400px;
   background-color: transparent;
   border: none;
 }
@@ -157,4 +157,26 @@
   border: none; 
   border-radius: 1em;
   box-sizing: border-box; 
+}
+@media screen and (max-width: 700px) {
+  .mainDisplayContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .taskDisplayContainer,.timerDisplayContainer {
+    width: 100%; 
+    padding: 0.25em;
+  }
+
+  .timer {
+    font-size: 3.5em;
+  }
+
+  .taskListContainer {
+    max-width: 90vw;
+  }
+
+  .playerContainer {
+    flex-direction: column;
+  }
 }
