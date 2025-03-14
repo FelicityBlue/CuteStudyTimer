@@ -1,12 +1,17 @@
+import Modal from 'react-modal';
 import { useState, useEffect, useRef } from 'react'
 import settingIcon from "../assets/setting_icon.svg";
 function Timer() {
  const [timeLeft, setTimeLeft] = useState(1500);
  const [timerRun, setTimerRun] = useState(false);
  const [totalFocusTime, setTotalFocusTime] = useState(0);
- 
+ const [settingOpen, setSettingOpen] = useState(false);
  const [currTimer, setCurrTimer] = useState(1500);
  const startTimeRef  = useRef(0);
+
+ let pomodoroTime = 1500;
+ let shortBreak = 300;
+ let longBreak = 600;
 
   function startTimer () {
     setTimerRun(true);
@@ -47,28 +52,36 @@ function Timer() {
 
     return `${min}:${sec}`;
   }
-  function settingPopup(){
-
+  function handleSettingPopup(){
+    setSettingOpen(true);
+  }
+  function handleSettingClose(){
+    setSettingOpen(false);
   }
     return (
     <>
       <div className="timeDisplayContainer">
         <div className="timerContainer">
           <div className="timerBtns">
-            <button className="timerBtn" onClick={() => setTimer(1500)}>pomodoro</button>
-            <button className="timerBtn" onClick={() => setTimer(300)}>short break</button>
-            <button className="timerBtn" onClick={() => setTimer(600)}>long break</button>
+            <button className="timerBtn" onClick={() => setTimer(pomodoroTime)}>pomodoro</button>
+            <button className="timerBtn" onClick={() => setTimer(shortBreak)}>short break</button>
+            <button className="timerBtn" onClick={() => setTimer(longBreak)}>long break</button>
           </div>
           <p className="timer">{displayTime()}</p>
         </div>
         <div className="controlBtns">
           <button onClick={startTimer}>Start</button>
           <button onClick={() => setTimer(currTimer)}>Reset</button>
-          <img onClick={settingPopup} src={settingIcon} />
+          <img onClick={handleSettingPopup} src={settingIcon} />
         </div>
         <div id="totalTime">
           <p>Total Focus Time: {totalFocusTime} minutes</p>
         </div>
+        <Modal isOpen={settingOpen} >
+            <>
+              <button onClick={handleSettingClose}>Close</button>
+            </>
+        </Modal>
       </div>
     </>
   )
