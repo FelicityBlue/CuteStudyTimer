@@ -50,10 +50,29 @@ function Timer(props) {
 }, 800);
     return () => clearInterval(timeInterval);
   }, [timerRun, timeLeft]);
+  
   function setTimer(seconds){
     setTimeLeft(seconds);
     setCurrTimer(seconds);
     setTimerRun(false);
+
+    const pomodoroBtn = document.getElementById("pomodoro-btn");
+    const shortBreakBtn = document.getElementById("shortbreak-btn");
+    const longBreakBtn = document.getElementById("longbreak-btn");
+
+    pomodoroBtn.classList.remove("currModeBtn");
+    shortBreakBtn.classList.remove("currModeBtn");
+    longBreakBtn.classList.remove("currModeBtn");
+
+    if (seconds == pomodoroTime){
+      pomodoroBtn.classList.add("currModeBtn");
+    }
+    else if(seconds == shortBreak){
+      shortBreakBtn.classList.add("currModeBtn");
+    }
+    else if(seconds == longBreak){
+      longBreakBtn.classList.add("currModeBtn");
+    }
   }
   function displayTime(){
     let second = timeLeft % 60;
@@ -77,9 +96,9 @@ function Timer(props) {
       <div className="timeDisplayContainer">
         <div className="timerContainer">
           <div className="timerBtns">
-            <button className="timerBtn" onClick={() => setTimer(pomodoroTime)}>pomodoro</button>
-            <button className="timerBtn" onClick={() => setTimer(shortBreak)}>short break</button>
-            <button className="timerBtn" onClick={() => setTimer(longBreak)}>long break</button>
+            <button id="pomodoro-btn" className="timerBtn" onClick={() => setTimer(pomodoroTime)}>pomodoro</button>
+            <button id="shortbreak-btn" className="timerBtn" onClick={() => setTimer(shortBreak)}>short break</button>
+            <button id="longbreak-btn" className="timerBtn" onClick={() => setTimer(longBreak)}>long break</button>
           </div>
           <p className="timer">{displayTime()}</p>
         </div>

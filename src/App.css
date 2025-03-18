@@ -23,8 +23,9 @@
   margin: 0em;
 }
 .taskContainer input[type="text"]{
-  min-width: 5em;
   min-height: 2.25em;
+
+  width: 100%;
   margin: 0em 0.25em;
   padding-left: 0.5em;
   outline: 0;
@@ -52,7 +53,7 @@
   margin: 0.5em 0em;
   padding: 0em;
 }
-.controlBtns button, .timerBtns button {
+.controlBtns button, .timerBtns button, .settingPopup button {
 
   max-width: 100%;
   border-radius: 1.25em;
@@ -70,12 +71,15 @@
 .controlBtns button:hover, .timerBtns button:hover  {
   border-color: #f9f9f9;
 }
-
 .controlBtns img{
   width: 3em;
   height: auto;
   max-width: 100%;
   margin-right: 0.5em;
+}
+.currModeBtn {
+  background-color: #9d596e !important;
+  color: #f9f9f9 !important;
 }
 .taskListContainer{
   list-style: none;
@@ -88,12 +92,10 @@
   grid-template-columns: repeat(1, 1fr);
   max-width: 40vw;
   max-height: 80vh;
-  
-  
 }
 .taskListContainer .text {
-  padding-left:0.1em;
-  font-size: 1.25em;
+  padding-left:0.6em;
+  font-size: 1em;
   word-break: break; 
 }
 .taskListContainer li{
@@ -129,11 +131,11 @@
 .mainDisplayContainer{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5em;
+  gap: 1em;
+  margin: 4em 0em;
 }
 .timerDisplayContainer{
-  min-width: 70vw;
-  
+  min-width: 60vw; 
 }
 .taskDisplayContainer{
   border: 0.2em solid #f9f9f9;
@@ -158,7 +160,30 @@
   border-radius: 1em;
   box-sizing: border-box; 
 }
+
+.settingPopup{
+  position: fixed;
+  inset: 0px;
+  margin: auto;
+  padding:1em;
+
+  background-color: #f9f9f9;
+  border: 2px solid black;
+  border-radius: 1em;
+  width: 90vw;
+  height: 60vh;
+  
+  max-width: 600px;
+}
+#stop-btn{
+  display: none;
+}
 @media screen and (max-width: 700px) {
+  .webName{
+    font-size: 1em;
+    margin-top: 3em;
+  margin-bottom: 3em;
+  }
   .mainDisplayContainer {
     grid-template-columns: 1fr;
   }
@@ -175,7 +200,9 @@
   .taskListContainer {
     max-width: 90vw;
   }
-
+  .taskContainer input[type="text"]{
+    width: 60%;
+  }
   .playerContainer {
     flex-direction: column;
   }

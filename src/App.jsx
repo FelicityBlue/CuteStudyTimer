@@ -11,7 +11,7 @@ function App() {
   
     return (
     <>
-    <h1 className="webName">Cute Study Timer</h1>
+    <h2 className="webName">Cute Study Timer</h2>
     
     <div className="mainDisplayContainer">
       <div className="timerDisplayContainer" >
