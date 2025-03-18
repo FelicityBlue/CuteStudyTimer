@@ -15,27 +15,37 @@ function Timer(props) {
  let shortBreak = 300;
  let longBreak = 600;
 
-  function startTimer () {
+  // start timer
+  function handleStartTimer () {
     setTimerRun(true);
-    startTimeRef.current = Date.now();
+    startTimeRef.current = Date.now() - (currTimer - timeLeft) * 1000;
+    // hide start btn & show pause btn
+    document.getElementById("start-btn").style.display = "none";
+    document.getElementById("stop-btn").style.display = "block";
   }
-
+  // Pause timer
+  function handlePauseTimer() {
+    setTimerRun(false);
+    // show pause btn & hide start btn
+    document.getElementById("start-btn").style.display = "block";
+    document.getElementById("stop-btn").style.display = "none";
+  }
   useEffect(() => {
     if(!timerRun) return;
 
     const timeInterval = setInterval (() => {
-    if(timeLeft !== 0){
-        const timePassed = Date.now() - startTimeRef.current;
-        const updatedTimeLeft = currTimer - (Math.floor(timePassed/1000));
+    if(timeLeft > 0){
+      const timePassed = Date.now() - startTimeRef.current;
+      const updatedTimeLeft = currTimer - (Math.floor(timePassed/1000));
 
-        setTimeLeft(updatedTimeLeft);
+      setTimeLeft(updatedTimeLeft);
     }
-    else{
-        timeUpAudioRef.current.play();
-        setTimerRun(false);
-        setTimeLeft(currTimer);
-        setTotalFocusTime(totalFocusTime+(Math.floor(currTimer / 60)));
-        clearInterval(timeInterval);
+    else{   
+      timeUpAudioRef.current.play();
+      setTimerRun(false);
+      setTimeLeft(currTimer);
+      setTotalFocusTime(totalFocusTime+(Math.floor(currTimer / 60)));
+      clearInterval(timeInterval);
     }
 }, 800);
     return () => clearInterval(timeInterval);
@@ -74,14 +84,15 @@ function Timer(props) {
           <p className="timer">{displayTime()}</p>
         </div>
         <div className="controlBtns">
-          <button onClick={startTimer}>Start</button>
+          <button id="start-btn" onClick={handleStartTimer}>Start</button>
+          <button id="stop-btn" onClick={handlePauseTimer}>Pause</button>
           <button onClick={() => setTimer(currTimer)}>Reset</button>
           <img onClick={handleSettingPopup} src={settingIcon} />
         </div>
         <div id="totalTime">
           <p>Total Focus Time: {totalFocusTime} minutes</p>
         </div>
-        <Modal isOpen={settingOpen} >
+        <Modal className="settingPopup" isOpen={settingOpen} >
             <>
               <button onClick={handleSettingClose}>Close</button>
             </>
