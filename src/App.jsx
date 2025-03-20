@@ -12,7 +12,6 @@ function App() {
     return (
     <>
     <h2 className="webName">Cute Study Timer</h2>
-    
     <div className="mainDisplayContainer">
       <div className="timerDisplayContainer" >
         <Timer timeUpSound={currTimeUpSound} />
