@@ -7,12 +7,12 @@ A productivity-focused Pomodoro timer application with task management, Spotify 
  - Minimalist Pomodoro timer to enhance focus and productivity.
  - Integrated to-do list for task management.
  - Spotify playback functionality for seamless music integration.
- - Tracks total time spent on tasks.
 
 **Planned features and improvements:**
 
-Customizable timer settings (e.g., work/break durations).
-Dark mode for better usability.
+- Customizable timer settings (e.g., work/break durations).
+- Dark mode for better user experience.
+- Database to keep track of user' total time spent.
 
 **Acknowledgments**
 Inspired by the Pomodoro technique for productivity.
