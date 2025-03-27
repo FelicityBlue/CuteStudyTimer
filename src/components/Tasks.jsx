@@ -7,26 +7,29 @@ function Tasks(){
     function newTaskChange(e){
         setNewTask(e.target.value);
     }
-    function addTask() {
+    function addTask(e) {
+        e.preventDefault();
+
         if(newTask.trim() !== ""){
             setTasks(t => [...t, newTask]);
             setNewTask("");
-        }
-        
+        }  
     }
 
     return(
         <>
         
-        <div className="taskContainer">
+        <form className="taskForm" onSubmit={addTask}>
             <input
                 type="text"
                 placeholder="Add a task..."
                 value={newTask}
                 onChange={newTaskChange}
             />
-            <img onClick={addTask} src={addIcon} />
-        </div>
+            <button type="submit">
+                <img src={addIcon} alt="Add Task" />
+            </button>
+        </form>
         <ol className="taskListContainer">
             {tasks.map((task, index) =>  (
                 <li key={index}>
@@ -41,4 +44,4 @@ function Tasks(){
     );
 }
 
-export default Tasks
+export default Tasks;
