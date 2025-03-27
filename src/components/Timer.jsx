@@ -108,9 +108,7 @@ function Timer(props) {
           <button onClick={() => setTimer(currTimer)}>Reset</button>
           <img onClick={handleSettingPopup} src={settingIcon} />
         </div>
-        <div id="totalTime">
-          <p>Total Focus Time: {totalFocusTime} minutes</p>
-        </div>
+        
         <Modal className="settingPopup" isOpen={settingOpen} >
             <>
               <button onClick={handleSettingClose}>Close</button>
