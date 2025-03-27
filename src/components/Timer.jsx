@@ -84,12 +84,7 @@ function Timer(props) {
 
     return `${min}:${sec}`;
   }
-  function handleSettingPopup(){
-    setSettingOpen(true);
-  }
-  function handleSettingClose(){
-    setSettingOpen(false);
-  }
+
     return (
     <>
       <audio ref={timeUpAudioRef} src={props.timeUpSound} />
@@ -106,14 +101,8 @@ function Timer(props) {
           <button id="start-btn" onClick={handleStartTimer}>Start</button>
           <button id="stop-btn" onClick={handlePauseTimer}>Pause</button>
           <button onClick={() => setTimer(currTimer)}>Reset</button>
-          <img onClick={handleSettingPopup} src={settingIcon} />
         </div>
-        
-        <Modal className="settingPopup" isOpen={settingOpen} >
-            <>
-              <button onClick={handleSettingClose}>Close</button>
-            </>
-        </Modal>
+
       </div>
     </>
   )
