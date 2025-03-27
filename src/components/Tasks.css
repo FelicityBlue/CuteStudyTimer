@@ -1,17 +1,20 @@
 
 .taskContainer{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    width: fit-content;
     background-color: var(--light_pink_color);
-    border-radius: 20px;
+    margin-top: 0.5rem;
+    border-radius: 1rem;
 }
 
 .taskForm {
     justify-content: space-between;
     align-items: center;
-
-    padding: 15px 25px;
     width: 350px;
+    padding: 10px;
     transition: all 0.3s ease;
 }
 
@@ -59,7 +62,6 @@
 
 .taskItem:hover {
     transform: scale(1.03);
-    color: var(--light_green_color);
 }
 
 .taskCheckbox {
