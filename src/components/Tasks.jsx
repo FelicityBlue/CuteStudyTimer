@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./Tasks.css"
 import addIcon from "../assets/add_box.svg";
 function Tasks(){
     const [tasks, setTasks] = useState([]);
@@ -18,26 +19,26 @@ function Tasks(){
 
     return(
         <>
-        
+        <div className="taskContainer">
         <form className="taskForm" onSubmit={addTask}>
             <input
                 type="text"
                 placeholder="Add a task..."
                 value={newTask}
                 onChange={newTaskChange}
+                className="taskInput"
             />
-            <button type="submit">
-                <img src={addIcon} alt="Add Task" />
-            </button>
         </form>
+
         <ol className="taskListContainer">
             {tasks.map((task, index) =>  (
-                <li key={index}>
-                    <input type="checkbox" />
-                    <span className="text">{task}</span>
+                <li key={index} className="taskItem">
+                    <input type="checkbox" className="taskCheckbox" />
+                    <span className="taskText">{task}</span>
                 </li>
             ))}
         </ol>
+        </div>
 
 
         </>
