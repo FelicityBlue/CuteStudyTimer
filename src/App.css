@@ -14,12 +14,19 @@
   --dark_green_color: #6a6e21;
   
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: linear-gradient( #ffcfd5, #ffd8af);
+
+}
 
 .container{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
   background-image: linear-gradient( #ffcfd5, #ffd8af);

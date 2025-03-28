@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-width: 90vw;
     width: fit-content;
     background-color: var(--light_pink_color);
     margin-top: 0.5rem;
@@ -89,4 +90,10 @@
 .taskCheckbox:checked + .taskText{
   text-decoration: line-through; 
   color: rgb(166, 159, 159);
+}
+
+@media screen and (max-width: 900px) {
+  .taskContainer{
+
+  }
 }
